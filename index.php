@@ -6,18 +6,6 @@ session_start();
 
 error_reporting(0);
 
-if (isset($_SESSION['username'])) {
-    // Cek level dan arahkan ke halaman yang sesuai
-    if ($_SESSION['level'] == 'ADMIN') {
-        header("Location: menu.php");
-    } elseif ($_SESSION['level'] == 'STAFF') {
-        header("Location: menuStaff.php");
-    } elseif ($_SESSION['level'] == 'PASIEN') {
-        header("Location: menuPasien.php");
-    }
-    exit;
-}
-
 if (isset($_POST['submit'])) {
     $name = $_POST['username'];
     $password = $_POST['password'];
@@ -31,11 +19,11 @@ if (isset($_POST['submit'])) {
         
         // Cek level dan arahkan ke halaman yang sesuai
         if ($_SESSION['level'] == 'ADMIN') {
-            header("Location: home.html");
+            header("Location: admin.html");
         } elseif ($_SESSION['level'] == 'STAFF') {
-            header("Location: menuStaff.php");
+            header("Location: staff.html");
         } elseif ($_SESSION['level'] == 'PASIEN') {
-            header("Location: menuPasien.php");
+            header("Location: pasien.html");
         }
         exit;
     } else {
